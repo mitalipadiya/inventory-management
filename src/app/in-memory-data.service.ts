@@ -14,7 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
         name: 'Pen',
         description: 'Pin point Pen',
         price: 5,
-        inStock: true,
+        inStock: false,
       },
       {
         id: 12,
