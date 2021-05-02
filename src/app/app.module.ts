@@ -8,11 +8,14 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HeaderComponent } from './components/core/header/header.component';
 import { StocksManagementComponent } from './components/stocks-management/stocks-management.component';
+import { ConfirmationDialogComponent } from './components/core/confirmation-dialog/confirmation-dialog.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [AppComponent, StocksManagementComponent, HeaderComponent],
+  declarations: [AppComponent, StocksManagementComponent, HeaderComponent, ConfirmationDialogComponent],
   imports: [
     BrowserModule,
+    NgbModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       // @ts-ignore

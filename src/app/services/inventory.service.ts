@@ -22,6 +22,15 @@ export class InventoryService {
       .get<Stock[]>(this.stockUrl)
       .pipe(catchError(this.handleError<Stock[]>('getStocks', [])));
   }
+
+  deleteStock(id: number): Observable<Stock> {
+    const url = `${this.stockUrl}/${id}`;
+
+    return this.http.delete<Stock>(url, this.httpOptions).pipe(
+      catchError(this.handleError<Stock>('deleteStock'))
+    );
+  }
+
   // tslint:disable-next-line:typedef
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
