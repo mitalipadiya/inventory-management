@@ -1,0 +1,12 @@
+<form>
+  <div class="form-group form-inline">
+    <input
+      class="form-control ml-2 search-input"
+      type="search"
+      placeholder="Search item by name"
+      name="searchTerm"
+      [(ngModel)]="searchTerm"
+      (input)="search($event.target.value)"
+    />
+  </div>
+</form>

@@ -1,0 +1,89 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ modalData?.type }} Item</h4>
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form
+    class="was-validated"
+    [formGroup]="stocksForm"
+    #formDir="ngForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-group">
+      <label for="name"
+        >Name<abbr title="required" aria-label="required">*</abbr></label
+      >
+      <input
+        class="form-control"
+        formControlName="name"
+        placeholder="Item Name"
+        required
+      />
+      <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="name.errors.required">Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description"
+        >Description<abbr title="required" aria-label="required">*</abbr></label
+      >
+      <textarea
+        class="form-control"
+        formControlName="description"
+        placeholder="description"
+        required
+      ></textarea>
+      <div
+        *ngIf="
+          description.invalid && (description.dirty || description.touched)
+        "
+        class="invalid-feedback"
+      >
+        <div *ngIf="description.errors.required">Description is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price"
+        >Price<abbr title="required" aria-label="required">*</abbr></label
+      >
+      <input
+        class="form-control"
+        formControlName="price"
+        type="number"
+        required
+      />
+      <div
+        *ngIf="price.invalid && (price.dirty || price.touched)"
+        class="invalid-feedback"
+      >
+        <div *ngIf="price.errors.required">Price is required.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          formControlName="inStock"
+          type="checkbox"
+          id="inStock"
+        />
+        <label class="form-check-label" for="inStock">In Stock?</label>
+      </div>
+    </div>
+    <div class="col-12 btn-align-flex-en">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="stocksForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

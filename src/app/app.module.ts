@@ -9,14 +9,29 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HeaderComponent } from './components/core/header/header.component';
 import { StocksManagementComponent } from './components/stocks-management/stocks-management.component';
 import { ConfirmationDialogComponent } from './components/core/confirmation-dialog/confirmation-dialog.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StockFormComponent } from './components/stocks-management/stock-form/stock-form.component';
+import { SearchComponent } from './components/core/search/search.component';
+import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
 @NgModule({
-  declarations: [AppComponent, StocksManagementComponent, HeaderComponent, ConfirmationDialogComponent],
+  declarations: [
+    AppComponent,
+    StocksManagementComponent,
+    HeaderComponent,
+    ConfirmationDialogComponent,
+    StockFormComponent,
+    SearchComponent,
+    SearchFilterPipe,
+  ],
   imports: [
     BrowserModule,
-    NgbModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+    NgbPaginationModule,
     HttpClientInMemoryWebApiModule.forRoot(
       // @ts-ignore
       InMemoryDataService,
